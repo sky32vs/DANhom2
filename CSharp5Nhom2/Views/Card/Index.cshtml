@@ -1,0 +1,59 @@
+﻿@model IEnumerable<CSharp5Nhom2.Models.GioHangChiTiet>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IDGHCT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IDGH)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IDSach)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IDUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoLuong)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDGHCT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDGH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDSach)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuong)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

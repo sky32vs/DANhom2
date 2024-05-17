@@ -1,0 +1,81 @@
+﻿@model IEnumerable<CSharp5Nhom2.Models.Sach>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IDSach)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TenSach)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IDTacGia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IDNXB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IDTheLoai)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoLuong)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDSach)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSach)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDTacGia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDNXB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDTheLoai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuong)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+            <td>
+                    <form action="@Url.Action("AddToCart", "Sach")" method="post">
+                    <div class="form-group">
+                        <label for="soLuong">Số lượng:</label>
+                            <input type="number" id="soLuong" name="soLuong" min="1" class="form-control" placeholder="Nhập số lượng" />
+                    </div>
+                    <input type="hidden" name="id" value="@item.IDSach" />
+                    <button type="submit" class="btn btn-primary">Thêm vào giỏ hàng</button>
+                </form>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
